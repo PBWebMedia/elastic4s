@@ -27,7 +27,7 @@ class BulkProcessor(c: Client, processor: org.elasticsearch.action.bulk.BulkProc
     new Thread(new Runnable {
       override def run(): Unit = {
         try {
-          close(Integer.MAX_VALUE.days)
+          close(Long.MaxValue.nanoseconds)
           promise.success(())
         } catch {
           case NonFatal(e) =>
